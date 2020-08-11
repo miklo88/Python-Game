@@ -1,4 +1,7 @@
+# room class import
 from room import Room
+# player class import
+from player import Player
 
 # Declare all the rooms
 room = {
@@ -20,10 +23,7 @@ chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
 
-print(room['outside'])
-
 # Link rooms together
-
 room['outside'].n_to = room['foyer']
 room['foyer'].s_to = room['outside']
 room['foyer'].n_to = room['overlook']
