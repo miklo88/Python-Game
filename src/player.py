@@ -1,7 +1,7 @@
 # Write a class to hold player information, e.g. what room they are in
 # currently.
 class Player:
-    def __init__(self, name, currentRoom, items):
+    def __init__(self, name, currentRoom=None, items=[]):
         self.name = name
         self.currentRoom = currentRoom
         self.items = items
@@ -9,5 +9,5 @@ class Player:
     def __str__(self):
         return f'Player info: {self.name} : {self.currentRoom} : {self.items}'
 
-# player = Player('carlitos', 'room', ['tools', 'shovel', 'pizza'])
+# player = Player('carlitos', 'room', ['inventory', 'shovel', 'pizza'])
 # print(player)
