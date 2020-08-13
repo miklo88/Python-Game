@@ -5,6 +5,10 @@ class Room:
         self.name = name
         self.description = description
         # self.items = items
+        self.n_to: Room = None
+        self.s_to: Room = None
+        self.e_to: Room = None
+        self.w_to: Room = None
      
     def __str__(self):
         output = f'You have entered {self.name} : {self.description}'
@@ -23,16 +27,3 @@ class Room:
 
 # room = Room('Bano', 'Cono it fucking smells in here papi')
 # print(room)
-
-# if currentRoom == room['outside']:
-#     return f'youre outside. i should input here.'
-
-
-# room['outside'].n_to = room['foyer']
-# room['foyer'].s_to = room['outside']
-# room['foyer'].n_to = room['overlook']
-# room['foyer'].e_to = room['narrow']
-# room['overlook'].s_to = room['foyer']
-# room['narrow'].w_to = room['foyer']
-# room['narrow'].n_to = room['treasure']
-# room['treasure'].s_to = room['narrow']

@@ -36,7 +36,8 @@ room['treasure'].s_to = room['narrow']
 #
 # Main
 #
-instructions = 'Need to write out some instructions'
+instructions = '''Welcome to the adventure game! You will be searching for a lost treasure. Using the keys on your keyboard of n, s, e, w 
+you can control with cardinal direction your player travels! Good luck on your journey!'''
 print(instructions)
 
 # Make a new player object that is currently in the 'outside' room.
@@ -44,8 +45,6 @@ name = input(f'Enter your name: ')
 player = Player(name)
 player.currentRoom = room['outside']
 player.items = ['inventory']
-
-# print(player.currentRoom)
 
 # Write a loop that:
 while True:
