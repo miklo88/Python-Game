@@ -1,9 +1,9 @@
 # room class import
 from room import Room
-# print(Room)
 # player class import
 from player import Player
-# print(Player)
+# item class implort
+from item import Item
 # Declare all the rooms
 room = {
     'outside':  Room("Outside Cave Entrance",
@@ -43,30 +43,29 @@ print(instructions)
 # Make a new player object that is currently in the 'outside' room.
 name = input(f'Enter your name: ')
 player = Player(name)
-player.currentRoom = room['outside']
+player.current_room = room['outside']
 player.items = ['inventory']
-
 # Write a loop that:
 while True:
 # # * Prints the current room name
-    print(player.currentRoom.name)
+    print(player.current_room.name)
 # # * Prints the current description (the textwrap module might be useful here).
-    print(f'The current room {player.currentRoom.description}')
+    print(f'{player.current_room.description}')
 # If the user enters a cardinal direction, attempt to move to the room there.
     direction = input('Which way we goin? N, S, E or W?: ')    
 # Print an error message if the movement isn't allowed.
     if direction == 'n':
-        if player.currentRoom is not None:
-            player.currentRoom = player.currentRoom.n_to
+        if player.current_room is not None:
+            player.current_room = player.current_room.n_to
     elif direction == 's':
-        if player.currentRoom is not None:
-            player.currentRoom = player.currentRoom.s_to
+        if player.current_room is not None:
+            player.current_room = player.current_room.s_to
     elif direction == 'e':
-        if player.currentRoom is not None:
-            player.currentRoom = player.currentRoom.e_to
+        if player.current_room is not None:
+            player.current_room = player.current_room.e_to
     elif direction == 'w':
-        if player.currentRoom is not None:
-            player.currentRoom = player.currentRoom.w_to
+        if player.current_room is not None:
+            player.current_room = player.current_room.w_to
 # If the user enters "q", quit the game.
     elif direction == 'q':
         print(f'Sadly the quest has ended.')

@@ -1,29 +1,29 @@
 # Implement a class to hold room information. This should have name and
 # description attributes.
 class Room:
-    def __init__(self, name, description):
+    def __init__(self, name, description, items=[]):
         self.name = name
         self.description = description
-        # self.items = items
-        self.n_to: Room = None
-        self.s_to: Room = None
-        self.e_to: Room = None
-        self.w_to: Room = None
+        self.items = items
+        self.n_to = None
+        self.s_to = None
+        self.e_to = None
+        self.w_to = None
      
     def __str__(self):
-        output = f'You have entered {self.name} : {self.description}'
+        output = f'{self.name} : {self.description}'
         if self.n_to:
-             output += ' : ' + self.n_to.name + '\n'   
-        if self.n_to:
-            output += ' : ' + self.n_to.name + '\n'
-        if self.n_to:
-            output += ' : ' + self.n_to.name + '\n'
-        if self.n_to:
-            output += ' : ' + self.n_to.name + '\n'
+             output += ' To the north is ' + self.n_to.name + '\n'   
+        if self.s_to:
+            output += ' To the south is ' + self.s_to.name + '\n'
+        if self.e_to:
+            output += ' To the east is ' + self.e_to.name + '\n'
+        if self.w_to:
+            output += ' To the west is ' + self.w_to.name + '\n'
 
         return output
 
-# Room(name, description, items)
+# Room(name, description, items) 
 
 # room = Room('Bano', 'Cono it fucking smells in here papi')
 # print(room)
