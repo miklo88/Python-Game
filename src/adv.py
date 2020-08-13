@@ -4,26 +4,44 @@ from room import Room
 from player import Player
 # item class implort
 from item import Item
+# Declare all the items
+item = {
+    'staff': Item('Wizard Staff','When in the right hands it summons true path'),
+    
+    'crystal': Item('Gemstone of Eyes','Use it to see into the future'),
+    
+    'book of summons': Item('Book of Summons','To know all the secrets of time'),
+    
+    'elven bow': Item('Elven Bow','Lightweight but fires with tremendous power and accuracy'),
+    
+    'mithril': Item('Mithril','None like it in the world. Will protect you against anything'),
+}
+# print(item['staff'])
+# print(item['crystal'])
+# print(item['book of summons'])
+# print(item['elven bow'])
+# print(item['mithril'])
 # Declare all the rooms
 room = {
     'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons"),
+                     "North of you, the cave mount beckons", item['staff']),
 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east."""),
+passages run north and east.""", item['book of summons']),
 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm."""),
+the distance, but there is no way across the chasm.""", item['crystal']),
 
     'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of gold permeates the air."""),
+to north. The smell of gold permeates the air.""", item['mithril']),
 
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south."""),
+earlier adventurers. The only exit is to the south.""", item['elven bow']),
 }
-
+# print(room['outside'])
+# print(room['foyer'])
 # Link rooms together
 room['outside'].n_to = room['foyer']
 room['foyer'].s_to = room['outside']
@@ -44,7 +62,8 @@ print(instructions)
 name = input(f'Enter your name: ')
 player = Player(name)
 player.current_room = room['outside']
-player.items = ['inventory']
+player.item = []
+print(player.item)
 # Write a loop that:
 while True:
 # # * Prints the current room name
