@@ -15,6 +15,8 @@ item = {
     'elven bow': Item('Elven Bow','Lightweight but fires with tremendous power and accuracy'),
     
     'mithril': Item('Mithril','None like it in the world. Will protect you against anything'),
+
+    'watch': Item('Pocket Watch','Being able to know the time always comes in handy')
 }
 # print(item['staff'])
 # print(item['crystal'])
@@ -39,6 +41,7 @@ to north. The smell of gold permeates the air.""", item['mithril']),
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south.""", item['elven bow']),
+
 }
 # print(room['treasure'])
 # print(room['foyer'])
@@ -63,7 +66,7 @@ player = Player()
 name = input(f'Enter your name: ')
 player.name = name
 player.current_room = room['outside']
-player.item = []
+player.item = item['watch']
 # player.add_item()
 # print(player.item)
 print(player)
