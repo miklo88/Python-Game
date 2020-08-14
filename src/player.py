@@ -2,19 +2,19 @@
 # currently.
 
 class Player:
-    def __init__(self, name, current_room=None, player_item=[]):
+    def __init__(self, name=None, current_room=None, item=[]):
         self.name = name
         self.current_room = current_room
-        self.player_item = player_item
+        self.item = item
 
     def __str__(self):
-        return f'Player info: {self.name} : {self.current_room} : {self.player_item}'
+        return f'Player info: {self.name} : {self.current_room} : {self.item}'
 
     def add_item(self):
-        return self.player_item.append()
+        return self.item.append()
 
     def drop_item(self):
-        return self.player_item.remove()
+        return self.item.remove()
 
 
 # player = Player('carlitos', 'room', [])

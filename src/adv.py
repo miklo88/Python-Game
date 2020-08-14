@@ -40,7 +40,7 @@ to north. The smell of gold permeates the air.""", item['mithril']),
 chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south.""", item['elven bow']),
 }
-print(room['outside'])
+# print(room['treasure'])
 # print(room['foyer'])
 # Link rooms together
 room['outside'].n_to = room['foyer']
@@ -59,17 +59,19 @@ you can control with cardinal direction your player travels! Good luck on your j
 print(instructions)
 
 # Make a new player object that is currently in the 'outside' room.
+player = Player()
 name = input(f'Enter your name: ')
-player = Player(name)
+player.name = name
 player.current_room = room['outside']
 player.item = []
 # player.add_item()
-print(player.item)
-
+# print(player.item)
+print(player)
+# print(f'Welcome, ready to start your journey {player}?')
 # Write a loop that:
 while True:
 # # * Prints the current room name
-    print(player.current_room.name)
+    print(f'{player.current_room.name}')
 # # * Prints the current description (the textwrap module might be useful here).
     print(f'{player.current_room.description}')
 # If the user enters a cardinal direction, attempt to move to the room there.
