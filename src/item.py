@@ -7,6 +7,10 @@ class Item:
     def __str__(self):
         return f'A {self.item_name}, {self.item_description}'
 
-
-# item = Item('item_name', 'description of item')
+    def on_take(self):
+        print(f'You have picked up {self.item_name}')
+        
+    def on_drop(self):
+        print(f'You have dropped {self.item_name}')
+# item = Item('item_name', 'description of item')  
 # print(item)

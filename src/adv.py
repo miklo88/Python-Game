@@ -40,7 +40,7 @@ to north. The smell of gold permeates the air.""", item['mithril']),
 chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south.""", item['elven bow']),
 }
-# print(room['outside'])
+print(room['outside'])
 # print(room['foyer'])
 # Link rooms together
 room['outside'].n_to = room['foyer']
@@ -63,7 +63,9 @@ name = input(f'Enter your name: ')
 player = Player(name)
 player.current_room = room['outside']
 player.item = []
+# player.add_item()
 print(player.item)
+
 # Write a loop that:
 while True:
 # # * Prints the current room name
