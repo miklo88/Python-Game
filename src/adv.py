@@ -84,7 +84,7 @@ while True:
 # # * Prints the current description (the textwrap module might be useful here).
     print(f'{player.current_room.description}')
     #prints items in a room if any
-    # print(f'{player.current_room.items}')
+    print(f'{player.current_room.item}')
 # If the user enters a cardinal direction, attempt to move to the room there.
     direction = input('Which way we goin? N, S, E or W?: ')    
 # Print an error message if the movement isn't allowed.
