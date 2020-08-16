@@ -8,10 +8,11 @@ class Player:
         self.item = inventory
 
     def __str__(self):
-        return f'Player info: Name: {self.name} Current Location: {self.current_room} Inventory Bag: {self.inventory}'
+        return f'Player info: Name: "{self.name}" Current Location: "{self.current_room}" Inventory Bag: "{self.inventory}"'
 
-    # def add_item(self):
-    #     return self.item.append()
+    def add_item(self):
+        print(f'add_item worked for player')
+        return self.item.append({self.current_room.item})
 
     # def drop_item(self):
     #     return self.item.remove()

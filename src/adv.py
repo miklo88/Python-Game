@@ -19,10 +19,7 @@ item = {
     'watch': Item('Pocket Watch','Being able to know the time always comes in handy')
 }
 # print(item['staff'])
-# print(item['crystal'])
-# print(item['book of summons'])
-# print(item['elven bow'])
-# print(item['mithril'])
+print(Item.on_take(item['staff']))
 # Declare all the rooms
 room = {
     'outside':  Room("Outside Cave Entrance",
@@ -41,11 +38,8 @@ to north. The smell of gold permeates the air."""),
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
-
 }
-# print(room['treasure'])
-# print(room['foyer'])
-
+# print(Room.add_item())
 # Link rooms together
 room['outside'].n_to = room['foyer']
 room['foyer'].s_to = room['outside']
@@ -74,9 +68,11 @@ name = input(f'Enter your name: ')
 player.name = name
 player.current_room = room['outside']
 player.inventory = item['watch']
+print(type(player.add_item()))
+# print('player.current_room.item', player.current_room.item)
 # print(player.item)
-print(f'////// {player} end player info//////')
-# print(f'Welcome, ready to start your journey {player}?')
+# print(f'////// {player} end player info//////')
+
 # Write a loop that:
 while True:
 # # * Prints the current room name
@@ -85,8 +81,10 @@ while True:
     print(f'{player.current_room.description}')
     #prints items in a room if any
     print(f'{player.current_room.item}')
+    print(f'{player.current_room.item.item_name}')
 # If the user enters a cardinal direction, attempt to move to the room there.
-    direction = input('Which way we goin? N, S, E or W?: ')    
+    direction = input('Which way we goin? N, S, E or W?: ')
+            
 # Print an error message if the movement isn't allowed.
     if direction == 'n':
         if player.current_room is not None:

@@ -8,7 +8,9 @@ class Item:
         return f'A {self.item_name}, {self.item_description}'
 
     def on_take(self):
-        print(f'You have picked up {self.item_name}')
+        # return add({self.item_name})
+        print(f'on take worked. {self.item_name}', type({self.item_name}))
+        # print(f'You have picked up {self.item_name}')
         
     def on_drop(self):
         print(f'You have dropped {self.item_name}')

@@ -24,7 +24,9 @@ class Room():
         return output
 
     # def add_item(self):
-    #     return item.append()
+    #     print(f'add item worked')
+
+        # return item.append()
 
     # def remove_item(self):
     #     return item.remove()
