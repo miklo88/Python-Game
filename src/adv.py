@@ -6,7 +6,7 @@ from player import Player
 from item import Item
 # Declare all the items
 item = {
-    'staff': Item('Wizard Staff','When in the right hands it summons true path'),
+    'staff': Item('Wizard Staff','When in the right hands it summons the true path'),
     
     'crystal': Item('Gemstone of Eyes','Use it to see into the future'),
     
@@ -26,25 +26,26 @@ item = {
 # Declare all the rooms
 room = {
     'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons", item['staff']),
-
+                     "North of you, the cave mount beckons"),
+# 
     'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east.""", item['book of summons']),
-
+passages run north and east."""),
+# 
     'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
 into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm.""", item['crystal']),
-
+the distance, but there is no way across the chasm."""),
+# 
     'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of gold permeates the air.""", item['mithril']),
-
+to north. The smell of gold permeates the air."""),
+#
     'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
 chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south.""", item['elven bow']),
+earlier adventurers. The only exit is to the south."""),
 
 }
 # print(room['treasure'])
 # print(room['foyer'])
+
 # Link rooms together
 room['outside'].n_to = room['foyer']
 room['foyer'].s_to = room['outside']
@@ -54,6 +55,12 @@ room['overlook'].s_to = room['foyer']
 room['narrow'].w_to = room['foyer']
 room['narrow'].n_to = room['treasure']
 room['treasure'].s_to = room['narrow']
+#item assignment to rooms
+room['outside'].item = item['staff']
+room['foyer'].item = item['crystal']
+room['overlook'].item = item['mithril']
+room['narrow'].item = item['elven bow']
+room['treasure'].item = item['book of summons']
 #
 # Main
 #
@@ -66,10 +73,9 @@ player = Player()
 name = input(f'Enter your name: ')
 player.name = name
 player.current_room = room['outside']
-player.item = item['watch']
-# player.add_item()
+player.inventory = item['watch']
 # print(player.item)
-print(player)
+print(f'////// {player} end player info//////')
 # print(f'Welcome, ready to start your journey {player}?')
 # Write a loop that:
 while True:
@@ -77,6 +83,8 @@ while True:
     print(f'{player.current_room.name}')
 # # * Prints the current description (the textwrap module might be useful here).
     print(f'{player.current_room.description}')
+    #prints items in a room if any
+    # print(f'{player.current_room.items}')
 # If the user enters a cardinal direction, attempt to move to the room there.
     direction = input('Which way we goin? N, S, E or W?: ')    
 # Print an error message if the movement isn't allowed.
