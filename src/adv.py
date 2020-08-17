@@ -18,8 +18,9 @@ item = {
 
     'watch': Item('Pocket Watch','Being able to know the time always comes in handy')
 }
-# print(item['staff'])
-print(Item.on_take(item['staff']))
+print(type(item))
+print(item['staff'])
+# print(Item.on_take(item['staff']))
 # Declare all the rooms
 room = {
     'outside':  Room("Outside Cave Entrance",
@@ -40,6 +41,7 @@ chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
 # print(Room.add_item())
+print(type(room))
 # Link rooms together
 room['outside'].n_to = room['foyer']
 room['foyer'].s_to = room['outside']
@@ -64,13 +66,14 @@ print(instructions)
 
 # Make a new player object that is currently in the 'outside' room.
 player = Player()
-name = input(f'Enter your name: ')
+# name = input(f'Enter your name: ')
+name = 'Carl'
 player.name = name
 player.current_room = room['outside']
 player.inventory = item['watch']
-print(type(player.add_item()))
+print(type(player))
 # print('player.current_room.item', player.current_room.item)
-# print(player.item)
+print(player.inventory)
 # print(f'////// {player} end player info//////')
 
 # Write a loop that:
@@ -81,23 +84,33 @@ while True:
     print(f'{player.current_room.description}')
     #prints items in a room if any
     print(f'{player.current_room.item}')
-    print(f'{player.current_room.item.item_name}')
+    # print(f'{player.current_room.item.item_name}')
 # If the user enters a cardinal direction, attempt to move to the room there.
-    direction = input('Which way we goin? N, S, E or W?: ')
-            
-# Print an error message if the movement isn't allowed.
+    direction = input('Move by cardinal direction commands N, S, E or W. You can grab item or drop item: ')
+    # Print an error message if the movement isn't allowed.
     if direction == 'n':
         if player.current_room is not None:
-            player.current_room = player.current_room.n_to
+            player.current_room = player.current_room.n_to 
+    #handle error
     elif direction == 's':
         if player.current_room is not None:
             player.current_room = player.current_room.s_to
+    #handle error
     elif direction == 'e':
         if player.current_room is not None:
             player.current_room = player.current_room.e_to
+    #handle error
     elif direction == 'w':
         if player.current_room is not None:
             player.current_room = player.current_room.w_to
+#handle error
+    elif direction == 'grab item':
+        # if direction == 'grab item':
+        print('grab some stuff')
+        
+    elif direction == 'drop item':
+        print('drop some stuff')
+
 # If the user enters "q", quit the game.
     elif direction == 'q':
         print(f'Sadly the quest has ended.')

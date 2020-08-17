@@ -1,20 +1,20 @@
-
+from item import Item
 # Implement a class to hold room information. This should have name and
-# description attributes.
+# # description attributes.
 class Room():
-    def __init__(self, name, description, room_item=[]):
+    def __init__(self, name, description, item=[]):
         self.name = name
         self.description = description
         self.n_to = None
         self.s_to = None
         self.e_to = None
         self.w_to = None
-        self.item = room_item
+        self.item = item
 
     def __str__(self):
         output = f'{self.name} : {self.description} : {self.item}'
         if self.n_to:
-             output += self.n_to.name + '\n'
+             output += self.n_to.name + '\n'            
         if self.s_to:
             output += self.s_to.name + '\n' 
         if self.e_to:
