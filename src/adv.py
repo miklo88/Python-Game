@@ -18,9 +18,7 @@ item = {
 
     'watch': Item('Pocket Watch','Being able to know the time always comes in handy')
 }
-print(type(item))
-print(item['staff'])
-# print(Item.on_take(item['staff']))
+
 # Declare all the rooms
 room = {
     'outside':  Room("Outside Cave Entrance",
@@ -40,8 +38,7 @@ to north. The smell of gold permeates the air."""),
 chamber! Sadly, it has already been completely emptied by
 earlier adventurers. The only exit is to the south."""),
 }
-# print(Room.add_item())
-print(type(room))
+
 # Link rooms together
 room['outside'].n_to = room['foyer']
 room['foyer'].s_to = room['outside']
@@ -70,8 +67,9 @@ player = Player()
 name = 'Carl'
 player.name = name
 player.current_room = room['outside']
+# print(player.current_room.item)
 player.inventory = item['watch']
-print(type(player))
+
 # print('player.current_room.item', player.current_room.item)
 print(player.inventory)
 # print(f'////// {player} end player info//////')
@@ -86,7 +84,7 @@ while True:
     print(f'{player.current_room.item}')
     # print(f'{player.current_room.item.item_name}')
 # If the user enters a cardinal direction, attempt to move to the room there.
-    direction = input('Move by cardinal direction commands N, S, E or W. You can grab item or drop item: ')
+    direction = input('Move by cardinal direction commands N, S, E or W. You can "grab item" or "drop item": ')
     # Print an error message if the movement isn't allowed.
     if direction == 'n':
         if player.current_room is not None:
@@ -104,10 +102,26 @@ while True:
         if player.current_room is not None:
             player.current_room = player.current_room.w_to
 #handle error
+#grabbing an item
     elif direction == 'grab item':
+        item_name = player.current_room.item
+        print('//// item_name just name ///',item_name)
+        # grabbing the item using get item from room class
+        item = player.current_room.get_item(item_name)
+        print('//// item_name whole item ///',item)
+        if item:
+            # invokes ontake from item class so you know you have it
+            item.on_take()
+#removing from room
+            player.current_room.remove_item(item)
+            #removing from room and adding to players inventory
+            player.inventory.append(item)
+        # print('grabbed some stuff')
+        else:
+            print(f'{item_name} ////// is not here.')
         # if direction == 'grab item':
-        print('grab some stuff')
         
+#dropping the item
     elif direction == 'drop item':
         print('drop some stuff')
 
