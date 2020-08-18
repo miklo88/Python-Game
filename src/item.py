@@ -12,5 +12,7 @@ class Item:
         
     def on_drop(self):
         print(f'You have dropped {self.item_name}')
-# item = Item('item_name', 'description of item')  
+item = Item('item_name', 'description of item')  
 # print(item)
+
+# print(item.on_take())

@@ -110,12 +110,15 @@ while True:
         item = player.current_room.get_item(item_name)
         print('//// item_name whole item ///',item)
         if item:
+            print('/// before on_take()',item)
             # invokes ontake from item class so you know you have it
             item.on_take()
 #removing from room
+# ### MONDAY NIGHT STOPPING. JUST NEED TO FIGURE OUT HOW TO REMOVE FROM CURRENT ROOM
             player.current_room.remove_item(item)
             #removing from room and adding to players inventory
             player.inventory.append(item)
+            
         # print('grabbed some stuff')
         else:
             print(f'{item_name} ////// is not here.')
