@@ -36,8 +36,8 @@ class Room():
         # print(f'add item worked')
 
     def remove_item(self, item_name: str):
-        if self.item.item_name:
-            return self.item.remove()
+        # if self.item.item_name:
+        return self.item.remove()
 
 # Room(name, description, items) 
 

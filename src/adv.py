@@ -115,7 +115,8 @@ while True:
             item.on_take()
 #removing from room
 # ### MONDAY NIGHT STOPPING. JUST NEED TO FIGURE OUT HOW TO REMOVE FROM CURRENT ROOM
-            player.current_room.remove_item(item)
+            # AttributeError: 'Item' object has no attribute 'remove'
+            player.current_room.remove_item(item_name)
             #removing from room and adding to players inventory
             player.inventory.append(item)
             
