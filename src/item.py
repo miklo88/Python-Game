@@ -5,10 +5,10 @@ class Item:
         self.item_description = item_description
     
     def __str__(self):
-        return f'A {self.item_name}, {self.item_description}'
+        return f'Room Items:  {self.item_name}, {self.item_description}'
 
     def on_take(self):
-        print(f'You have picked up. {self.item_name}')
+        print(f'You have picked up {self.item_name}')
         
     def on_drop(self):
         print(f'You have dropped {self.item_name}')

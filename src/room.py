@@ -29,16 +29,14 @@ class Room():
             print('/// iterator', self.item.item_name)
             if self.item.item_name == self.item.item_name:
                 return self.item
-                # return True
-                # print('add item worked.', True)
         return False
-        # print('/// add item did not work ///')
-        # print(f'add item worked')
-
+        #removing item from current room
     def remove_item(self, item_name: str):
-        # if self.item.item_name:
-        return self.item.remove()
-
+        print('/// remove_item func.')
+        if item_name == self.item.item_name:
+            return self.item.remove()
+        else:
+            return f'{self.item.item_name} was not removed'
 # Room(name, description, items) 
 
 # room = Room('room', 'its described as such', 'item')

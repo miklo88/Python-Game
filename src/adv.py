@@ -54,6 +54,7 @@ room['foyer'].item = item['crystal']
 room['overlook'].item = item['mithril']
 room['narrow'].item = item['elven bow']
 room['treasure'].item = item['book of summons']
+
 #
 # Main
 #
@@ -118,7 +119,7 @@ while True:
             # AttributeError: 'Item' object has no attribute 'remove'
             player.current_room.remove_item(item_name)
             #removing from room and adding to players inventory
-            player.inventory.append(item)
+            player.inventory.append(item_name)
             
         # print('grabbed some stuff')
         else:
