@@ -106,21 +106,24 @@ while True:
 #grabbing an item
     elif direction == 'grab item':
         item_name = player.current_room.item
-        print('//// item_name just name ///',item_name)
+        # print('//// item_name ///',item_name)
         # grabbing the item using get item from room class
         item = player.current_room.get_item(item_name)
-        print('//// item_name whole item ///',item)
+        # print('//// item_name whole item ///',item)
         if item:
-            print('/// before on_take()',item)
+            print('/// ITEM ', item)
             # invokes ontake from item class so you know you have it
             item.on_take()
 #removing from room
 # ### MONDAY NIGHT STOPPING. JUST NEED TO FIGURE OUT HOW TO REMOVE FROM CURRENT ROOM
             # AttributeError: 'Item' object has no attribute 'remove'
-            player.current_room.remove_item(item_name)
+            player.current_room.remove_item(item)
+            print('/// room without item',item)
+            print('/// current room item', player.current_room.item)
+            # print('/// player inventory', player.inventory)
             #removing from room and adding to players inventory
-            player.inventory.append(item_name)
-            
+            player.inventory.append(item)
+            print('/// player inventory', player.inventory)
         # print('grabbed some stuff')
         else:
             print(f'{item_name} ////// is not here.')

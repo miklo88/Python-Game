@@ -25,18 +25,16 @@ class Room():
 # looping and grabbing items
     def get_item(self, item_name: str):
         for item in self.item.item_name:
-            # print('/// iterator',i)
-            print('/// iterator', self.item.item_name)
+            print('/// loop_name', self.item.item_name)
             if self.item.item_name == self.item.item_name:
                 return self.item
         return False
         #removing item from current room
     def remove_item(self, item_name: str):
         print('/// remove_item func.')
-        if item_name == self.item.item_name:
+        if self.item.item_name == self.item.item_name:
+            # print('/// checking if condition worked', item_name)
             return self.item.remove()
-        else:
-            return f'{self.item.item_name} was not removed'
 # Room(name, description, items) 
 
 # room = Room('room', 'its described as such', 'item')
