@@ -8,7 +8,7 @@ class Player:
         self.inventory = inventory
 
     def __str__(self):
-        return f'Player info: Name: "{self.name}" Current Location: "{self.current_room}" Inventory Bag: "{self.inventory}"'
+        return f'Player info: Player Name: "{self.name}" Current Location: "{self.current_room}" Inventory Bag: "{self.inventory}"'
 
     # def add_item(self):
     #     # print(f'add_item worked for player', {self.player.inventory})

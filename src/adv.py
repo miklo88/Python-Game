@@ -1,44 +1,53 @@
-# room class import
+#ROOM IMPORT
 from room import Room, room
-# player class import
+#PLAYER IMPORT
 from player import Player
-# item import
+#ITEM IMPORT
 from item import Item, item
-#
-# Main
-#
+#TESTING PURPOSES
+cubicle = Room('carls-room', 'bedroom that comes with some plants and a chonky cat.', ['beer', 'water', 'snacks'])
+bag = Item('water', 'always be drinking that high quality h2o.')
+print(cubicle.name)
+print(cubicle.description)
+print(cubicle.item)
+print(bag.item_name)
+print(bag.item_description)
+
+# INSTRUCTIONS, PLAYER ENTER NAME, ININTIATE GAME
 instructions = '''Welcome to the adventure game! You will be searching for a lost treasure. Using the keys on your keyboard of n, s, e, w 
 you can control with cardinal direction your player travels! Good luck on your journey!'''
 print(instructions)
-
-# Make a new player object that is currently in the 'outside' room.
+# DECLARING PLAYER AS PLAYER() CLASS
 player = Player()
 # name = input(f'Enter your name: ')
-name = 'Carl'
+name = 'Carl' #remove when you want to test the entire flow////////!
+# PLAYER.NAME
 player.name = name
+# PLAYER.CURRENT_ROOM
 player.current_room = room['outside']
-# print(player.current_room.item)
+# PLAYER.INVENTORY
 player.inventory = item['watch']
 
-# print('player.current_room.item', player.current_room.item)
+# print(room.item)
 print(player.inventory)
-# print(f'////// {player} end player info//////')
+#PLAYER.CURRENT_ROOM.ITEM
+print(f'////// {player} end player info//////')
 
-# Write a loop that:
+# ///// INVOKING THE GAME
 while True:
-# # * Prints the current room name
+# PLAYERS CURRENT_ROOM
     print(f'{player.current_room.name}')
-# # * Prints the current description (the textwrap module might be useful here).
+# ROOM DESCRIPTION
     print(f'{player.current_room.description}')
-    #prints items in a room if any
+# ROOM ITEMS IF ANY
     print(f'{player.current_room.item}')
-    # print(f'{player.current_room.item.item_name}')
-# If the user enters a cardinal direction, attempt to move to the room there.
-    direction = input('Move by cardinal direction commands N, S, E or W. You can "grab item" or "drop item": ')
-    # Print an error message if the movement isn't allowed.
+
+#GAME NAVIGATION
+    direction = input('Move by cardinal direction commands n, s, e or w. You can "grab item" or "drop item": ')
+    
     if direction == 'n':
         if player.current_room is not None:
-            player.current_room = player.current_room.n_to 
+            player.current_room = player.current_room.n_to            
     #handle error
     elif direction == 's':
         if player.current_room is not None:
