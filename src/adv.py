@@ -1,60 +1,9 @@
 # room class import
-from room import Room
+from room import Room, room
 # player class import
 from player import Player
-# item class implort
-from item import Item
-# Declare all the items
-item = {
-    'staff': Item('Wizard Staff','When in the right hands it summons the true path'),
-    
-    'crystal': Item('Gemstone of Eyes','Use it to see into the future'),
-    
-    'book of summons': Item('Book of Summons','To know all the secrets of time'),
-    
-    'elven bow': Item('Elven Bow','Lightweight but fires with tremendous power and accuracy'),
-    
-    'mithril': Item('Mithril','None like it in the world. Will protect you against anything'),
-
-    'watch': Item('Pocket Watch','Being able to know the time always comes in handy')
-}
-
-# Declare all the rooms
-room = {
-    'outside':  Room("Outside Cave Entrance",
-                     "North of you, the cave mount beckons"),
-# 
-    'foyer':    Room("Foyer", """Dim light filters in from the south. Dusty
-passages run north and east."""),
-# 
-    'overlook': Room("Grand Overlook", """A steep cliff appears before you, falling
-into the darkness. Ahead to the north, a light flickers in
-the distance, but there is no way across the chasm."""),
-# 
-    'narrow':   Room("Narrow Passage", """The narrow passage bends here from west
-to north. The smell of gold permeates the air."""),
-#
-    'treasure': Room("Treasure Chamber", """You've found the long-lost treasure
-chamber! Sadly, it has already been completely emptied by
-earlier adventurers. The only exit is to the south."""),
-}
-
-# Link rooms together
-room['outside'].n_to = room['foyer']
-room['foyer'].s_to = room['outside']
-room['foyer'].n_to = room['overlook']
-room['foyer'].e_to = room['narrow']
-room['overlook'].s_to = room['foyer']
-room['narrow'].w_to = room['foyer']
-room['narrow'].n_to = room['treasure']
-room['treasure'].s_to = room['narrow']
-#item assignment to rooms
-room['outside'].item = item['staff']
-room['foyer'].item = item['crystal']
-room['overlook'].item = item['mithril']
-room['narrow'].item = item['elven bow']
-room['treasure'].item = item['book of summons']
-
+# item import
+from item import Item, item
 #
 # Main
 #
@@ -111,11 +60,9 @@ while True:
         item = player.current_room.get_item(item_name)
         # print('//// item_name whole item ///',item)
         if item:
-            print('/// ITEM ', item)
             # invokes ontake from item class so you know you have it
             item.on_take()
 #removing from room
-# ### MONDAY NIGHT STOPPING. JUST NEED TO FIGURE OUT HOW TO REMOVE FROM CURRENT ROOM
             # AttributeError: 'Item' object has no attribute 'remove'
             player.current_room.remove_item(item)
             print('/// room without item',item)
