@@ -1,7 +1,7 @@
 # ITEM IMPORT
 from item import Item, item
 # /////////////ROOM CLASS
-class Room():
+class Room:
     def __init__(self, name, description, item=[]):
         self.name = name
         self.description = description

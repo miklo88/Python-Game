@@ -7,9 +7,15 @@ from item import Item, item
 #TESTING PURPOSES
 cubicle = Room('carls-room', 'bedroom that comes with some plants and a chonky cat.', ['beer', 'water', 'snacks'])
 bag = Item('water', 'always be drinking that high quality h2o.')
+# ROOM
 print(cubicle.name)
 print(cubicle.description)
 print(cubicle.item)
+print(cubicle.item.remove('snacks'))
+print(cubicle.item)
+print(cubicle.item.append('candy'))
+print(cubicle.item)
+# ITEM
 print(bag.item_name)
 print(bag.item_description)
 
@@ -17,7 +23,7 @@ print(bag.item_description)
 instructions = '''Welcome to the adventure game! You will be searching for a lost treasure. Using the keys on your keyboard of n, s, e, w 
 you can control with cardinal direction your player travels! Good luck on your journey!'''
 print(instructions)
-# DECLARING PLAYER AS PLAYER() CLASS
+#PLAYER AS PLAYER() CLASS
 player = Player()
 # name = input(f'Enter your name: ')
 name = 'Carl' #remove when you want to test the entire flow////////!
@@ -27,8 +33,8 @@ player.name = name
 player.current_room = room['outside']
 # PLAYER.INVENTORY
 player.inventory = item['watch']
-
-# print(room.item)
+print(player.inventory)
+player.inventory.append('append')
 print(player.inventory)
 #PLAYER.CURRENT_ROOM.ITEM
 print(f'////// {player} end player info//////')
